@@ -1,0 +1,108 @@
+{
+  "entities": {
+    "plans": {
+      "title": "plans",
+      "description": "Planificaciones pedagógicas personalizadas por usuario",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "type": { "type": "string" },
+        "ageRange": { "type": "string" },
+        "selectedDimensions": { "type": "array", "items": { "type": "string" } },
+        "topic": { "type": "string" },
+        "title": { "type": "string" },
+        "duration": { "type": "string" },
+        "targetAudience": { "type": "string" },
+        "relationalAxis": { "type": "string" },
+        "socialProblematic": { "type": "string" },
+        "problematizingQuestion": { "type": "string" },
+        "justification": { "type": "string" },
+        "generalObjective": { "type": "string" },
+        "essentialLearnings": { "type": "array", "items": { "type": "string" } },
+        "capacitiesToDevelop": { "type": "array", "items": { "type": "string" } },
+        "expectedResult": { "type": "string" },
+        "phases": { "type": "array" },
+        "familyInvolvement": { "type": "string" },
+        "inclusionPIAR": { "type": "string" },
+        "propositosMEN": { "type": "array", "items": { "type": "string" } },
+        "formativeEvaluation": { "type": "object" },
+        "ethnicAndTerritorialContext": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "userId", "title", "createdAt"]
+    },
+    "students": {
+      "title": "students",
+      "description": "Registro de estudiantes para el Observador del Estudiante y evaluación cualitativa",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "name": { "type": "string" },
+        "sede": { "type": "string" },
+        "cycle": { "type": "string" },
+        "frequentEmotion": { "type": "string" },
+        "birthDate": { "type": "string" },
+        "age": { "type": "string" },
+        "photoUrl": { "type": "string" },
+        "guardians": { "type": "string" },
+        "contactPhones": { "type": "string" },
+        "address": { "type": "string" },
+        "neighborhood": { "type": "string" },
+        "healthNutritionNotes": { "type": "string" },
+        "generalObservations": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "userId", "name", "createdAt"]
+    },
+    "diario_entries": {
+      "title": "diario_entries",
+      "description": "Entradas del diario de campo y observación cualitativa",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "studentId": { "type": "string" },
+        "userId": { "type": "string" },
+        "date": { "type": "string" },
+        "rectorExperience": { "type": "string" },
+        "activityTitle": { "type": "string" },
+        "observation": { "type": "string" },
+        "developmentAdvancement": { "type": "string" },
+        "selectedDimensions": { "type": "array", "items": { "type": "string" } },
+        "emotion": { "type": "string" },
+        "pedagogicalReflection": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "studentId", "userId", "date", "createdAt"]
+    },
+    "user_settings": {
+      "title": "user_settings",
+      "description": "Configuraciones del usuario y estado de sincronización inicial",
+      "type": "object",
+      "properties": {
+        "diarioSeeded": { "type": "boolean" },
+        "updatedAt": { "type": "string" },
+        "createdAt": { "type": "string" }
+      }
+    }
+  },
+  "firestore": {
+    "plans/{planId}": {
+      "schema": { "$ref": "#/entities/plans" },
+      "description": "Colección de planificaciones pedagógicas por docente"
+    },
+    "students/{studentId}": {
+      "schema": { "$ref": "#/entities/students" },
+      "description": "Colección de estudiantes"
+    },
+    "diario_entries/{entryId}": {
+      "schema": { "$ref": "#/entities/diario_entries" },
+      "description": "Entradas del diario de campo"
+    },
+    "user_settings/{userId}": {
+      "schema": { "$ref": "#/entities/user_settings" },
+      "description": "Ajustes de usuario e inicialización de datos"
+    }
+  }
+}

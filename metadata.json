@@ -1,0 +1,8 @@
+{
+  "name": " Primera Infancia I.E del municipio de San Pedro Sucre ",
+  "description": "Planificador integral de experiencias pedagógicas para la primera infancia bajo el Decreto 1411 de 2022 y la Ley 2503 de 2025.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
